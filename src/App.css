@@ -1,3 +1,15 @@
+#root {
+  height: 100vh;
+}
+
+html {
+  background-color: rgb(55, 70, 91);
+}
+
+* {
+  color: #ffffff;
+}
+
 .App {
   text-align: center;
 }
