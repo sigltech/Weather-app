@@ -16,16 +16,6 @@
     align-items: center;
 }
 
-.right-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
 .hero-img {
     width: 100%;
     object-fit: cover;
@@ -33,9 +23,44 @@
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* styling right side of hero banner */
+
+.right-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 440px;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-box h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
 #submit-btn {
-    color: #000;
+    color: #fff;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 20px;
     padding: 0.5rem 2rem;
+    opacity: 1;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#submit-btn:hover {
+    opacity: 0.5;
+    border: 2px solid rgb(0, 0, 0, 0.7);
+    background-color: rgb(0, 0, 0, 0.2);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
 }
 
 form {
@@ -45,16 +70,30 @@ form {
 
 form input {
     font-size: 1.5rem;
-    color: #000;
+    background-color: transparent;
+    color: rgb(189, 189, 189);
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid #000;
-    box-shadow: 0 0 5px 7px transparent;
+    border: none;
+    box-shadow: 0 0 5px 7px rgb(0, 0, 0, 0.2);
     border-radius: 5px;
     margin: 1.5rem 0;
 }
 
 form input:focus {
     outline: none;
+    background-color: rgba(255,255,255,0.1);
     box-shadow: 0 0 5px 7px rgb(0, 0, 0, 0.2);
+}
+
+.weather-api-form {
+    background-color: rgb(55, 70, 91);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem;
+    box-shadow: 0 0 5px 7px rgb(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: 70%;
+    height: 90%;
 }
