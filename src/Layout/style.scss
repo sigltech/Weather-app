@@ -2,16 +2,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 1.5rem 2rem;
+    z-index: 100;
 }
 
 .nav-links a {
     margin-left: 1rem;
     text-decoration: none;
-    
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 0.4rem 1.5rem;
+    border-radius: 10px;
 }
 
-/* Rain background */
+.nav-links a:hover {
+    color: #fff;
+    border: 2px solid rgb(255, 255, 255, 0.5);
+}
+
+/* ***************** Rain background ***************** */
 
 @mixin size($size) {
     width: $size;
@@ -55,7 +64,7 @@
       content: '';
       @include size(100%);
       @include abs-pos;
-      z-index: 1;
+      z-index: -100;
       animation: thunder-bg 6s infinite;
     }
   }

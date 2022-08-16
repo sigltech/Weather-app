@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import heroImg from '../../assets/imgs/HeroImg.jpg'
 import { CheckWeather } from '../../components'
 
 export default function LandingPage() {
+  const [searchState, setSearchState] = useState(false);
+
   return (
     <div className='hero-mast'>
       <div className='left-box'>
@@ -14,8 +16,7 @@ export default function LandingPage() {
             />
       </div>
       <div className='right-box'>
-        <h1>Check Weather</h1>
-        <CheckWeather />
+        <CheckWeather searchState={searchState} setSearchState={setSearchState}/>
       </div>
     </div>
   )

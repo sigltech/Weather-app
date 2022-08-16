@@ -207,7 +207,7 @@ export default function Layout() {
     },[])
   return (
     <>
-      <div class="thunder">
+      <div className="thunder">
         <canvas id="canvas1"></canvas>
         <canvas id="canvas2"></canvas>
         <canvas id="canvas3"></canvas>
