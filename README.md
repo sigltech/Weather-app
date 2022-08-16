@@ -18,7 +18,7 @@ You may also see any lint errors in the console.
 
 ## Future features
 
-1. Create an account, login and save your favorite cities.
+1. Create an account, login and save your favorite cities
 
 ### Background lighting attribution
 
