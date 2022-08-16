@@ -1,63 +1,33 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function CheckWeather({searchState, setSearchState}) {
-  const [city, setCity] = useState();
-  const [coordinates, setCoordinates] = useState([]);
-
-  useEffect(() => {
-    setSearchState(false);
-  },[])
+export default function CheckWeather({weatherData, setWeatherData}) {
+  const navigate = useNavigate();
+  const [cityInput, setCityInput] = useState('');
 
   const handleCityChange = (e) => {
-    setCity(e.target.value);
-  }
-  const getCityCoordinates = async () => {
-    try {
-      const GEO_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q={${city}}&limit=5&appid=f4f58893e8d26f71883611d84102ef37`;
-          await axios.get(GEO_API_URL).then(res => {
-            console.log(res.data)
-            const cityLat = res.data[0].lat;
-            const cityLon = res.data[0].lon;
-            setCoordinates({'latitude':cityLat,'Longitude': cityLon});
-            console.log(coordinates);
-        })
-      
-    } catch (error) {
-      console.log(error);
-    }
-      
-    }
-
-  function handleGetWeather(lat,long) {
-    try {
-      const weather_API_URL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=f4f58893e8d26f71883611d84102ef37`;
-      const response = axios.get(weather_API_URL)
-      console.log(response.data);
-      
-    } catch (error) {
-      console.log(error);
-    }
-      
-  }
+    setCityInput(e.target.value);
+  } 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getCityCoordinates();
-    console.log('submitted')
-    console.log(`city: ${city}`)
-    console.log(`Latitude: ${coordinates.latitude}, Longitude: ${coordinates.Longitude}`)
-    console.log(`coordinates: ${JSON.stringify(coordinates)}`)
-    handleGetWeather(coordinates.latitude,coordinates.Longitude);
-    setSearchState(true);
-    console.log('no coordinates')
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${process.env.REACT_APP_API_URL}`;
+    axios.get(API_URL)
+      .then(res => {
+        console.log(res.data);
+        setWeatherData(res.data);
+      }).catch(err => {
+        console.log(err);
+      }
+      )
+    console.log(weatherData);
+    navigate('/dashboard');
   }
 
   return (
     <>
-    {/* {!searchState ?  */}
       <div className='weather-api-form' style={{zIndex: '100'}}>
         <h1>Check Weather</h1>
         <form>
@@ -66,7 +36,6 @@ export default function CheckWeather({searchState, setSearchState}) {
             <button onClick={handleSubmit} type="submit" id='submit-btn'>Submit</button>
         </form>
     </div>
-    {/* : <p>loading...</p>} */}
     </>
   )
 }

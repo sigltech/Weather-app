@@ -7,8 +7,10 @@ export default function NavigationMenu() {
             <h1>Wet Weather Buddy</h1>
             <div className='nav-links'>
                 <a href="/">Home</a>
-                <a href="/">Sign in</a>
-                <a href="/">Register</a>
+                {/* ************* future features ************* */}
+                {/* <a href="/">Sign in</a>
+                <a href="/">Register</a> */}
+                {/* ************* future features ************* */}
             </div>
         </nav>
     </>

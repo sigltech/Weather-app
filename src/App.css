@@ -51,3 +51,25 @@ html {
     transform: rotate(360deg);
   }
 }
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.no-city-sel-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+  text-align: center;
+}
+
+.no-city-sel-error h2 {
+  font-weight: 400;
+}
+

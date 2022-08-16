@@ -3,7 +3,7 @@ import './style.css'
 import heroImg from '../../assets/imgs/HeroImg.jpg'
 import { CheckWeather } from '../../components'
 
-export default function LandingPage() {
+export default function LandingPage({weatherData, setWeatherData}) {
   const [searchState, setSearchState] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export default function LandingPage() {
             />
       </div>
       <div className='right-box'>
-        <CheckWeather searchState={searchState} setSearchState={setSearchState}/>
+        <CheckWeather weatherData={weatherData} setWeatherData={setWeatherData} searchState={searchState} setSearchState={setSearchState}/>
       </div>
     </div>
   )

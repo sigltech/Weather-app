@@ -87,6 +87,7 @@ form input:focus {
 }
 
 .weather-api-form {
+    background-color: rgb(55, 70, 91);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
